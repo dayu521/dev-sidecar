@@ -1,0 +1,54 @@
+{
+	"files": [
+		{
+			"path": "packages/mitmproxy/src/lib/proxy/mitmproxy/createFakeServerCenter.js",
+			"bookmarks": [
+				{
+					"line": 26,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/mitmproxy/src/lib/proxy/tls/FakeServersCenter.js",
+			"bookmarks": [
+				{
+					"line": 35,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/gui/src/background.js",
+			"bookmarks": [
+				{
+					"line": 308,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/mitmproxy/src/index.js",
+			"bookmarks": [
+				{
+					"line": 65,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/expose.js",
+			"bookmarks": [
+				{
+					"line": 39,
+					"column": 0,
+					"label": ""
+				}
+			]
+		}
+	]
+}
