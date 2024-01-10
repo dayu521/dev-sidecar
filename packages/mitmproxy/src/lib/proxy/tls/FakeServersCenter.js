@@ -58,8 +58,11 @@ module.exports = class FakeServersCenter {
         const certPem = pki.certificateToPem(cert)
         const keyPem = pki.privateKeyToPem(key)
         const fakeServer = new https.Server({
+          //HACK https://nodejs.org/docs/latest/api/tls.html#tlscreateserveroptions-secureconnectionlistener
+          // 文档不知道为什么没有构造器参数相关
           key: keyPem,
           cert: certPem,
+          //HACK 客户端如果支持sni,则调用
           SNICallback: (hostname, done) => {
             (async () => {
               const certObj = await this.certAndKeyContainer.getCertPromise(hostname, port)
@@ -92,6 +95,7 @@ module.exports = class FakeServersCenter {
         fakeServer.on('listening', () => {
           const mappingHostNames = tlsUtils.getMappingHostNamesFormCert(certObj.cert)
           serverPromiseObj.mappingHostNames = mappingHostNames
+          //HACK await此promise,会等待https服务器开始监听时,进行连接
           resolve(serverObj)
         })
         fakeServer.on('upgrade', (req, socket, head) => {

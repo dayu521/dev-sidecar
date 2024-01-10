@@ -50,6 +50,7 @@ function registerProcessListener () {
 
 const api = {
   async start (config) {
+    //这里从配置文件获取dns等配置
     const proxyOptions = ProxyOptions(config)
     const setting = config.setting
     if (setting) {
@@ -63,6 +64,7 @@ const api = {
     } else {
       process.env.NODE_TLS_REJECT_UNAUTHORIZED = '1'
     }
+    //HACK 传递配置
     const newServer = mitmproxy.createProxy(proxyOptions, () => {
       fireStatus(true)
       log.info(`代理服务已启动：${proxyOptions.host}:${proxyOptions.port}`)

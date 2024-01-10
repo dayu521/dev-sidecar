@@ -41,6 +41,7 @@ module.exports = function createConnectHandler (sslConnectInterceptor, middlewar
     if (isSslConnect(sslConnectInterceptors, req, cltSocket, head)) {
       fakeServerCenter.getServerPromise(hostname, srvUrl.port).then((serverObj) => {
         log.info('--- fakeServer connect', hostname)
+        //HACK 连接到我们创建的https服务器
         connect(req, cltSocket, head, localIP, serverObj.port)
       }, (e) => {
         log.error('getServerPromise', e)

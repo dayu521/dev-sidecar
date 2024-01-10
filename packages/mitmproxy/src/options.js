@@ -51,6 +51,15 @@ module.exports = (config) => {
       }
       return null // 由下一个拦截器判断
     },
+
+    //HACK  根据配置文件获取配置文件中的配置
+    // intercepts: {
+    //   'github.com': {
+    //     '/.*/.*/releases/download/': {
+    //       redirect: 'download.fastgit.org',
+    //       desc: 'release文件加速下载跳转地址',
+    //     }
+    // 其中redirect配置表示拦截器类型,就是根据它来创建不同的拦截器
     createIntercepts: (context) => {
       const rOptions = context.rOptions
       const hostname = rOptions.hostname

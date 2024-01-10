@@ -55,7 +55,9 @@ module.exports = {
       speedTest.initSpeedTest({ ...speedTestConfig, dnsMap: map })
     }
 
+
     const requestHandler = createRequestHandler(
+      // HACK 拦截在这里进行
       createIntercepts,
       middlewares,
       externalProxy,
@@ -65,9 +67,11 @@ module.exports = {
 
     const upgradeHandler = createUpgradeHandler()
 
+    //HACK 所有请求由此代理到目标
     const fakeServersCenter = createFakeServerCenter({
       caCertPath,
       caKeyPath,
+      //HACK https服务器使用上述被拦截的请求
       requestHandler,
       upgradeHandler,
       getCertSocketTimeout
@@ -76,6 +80,7 @@ module.exports = {
     const connectHandler = createConnectHandler(
       sslConnectInterceptor,
       middlewares,
+      //HACK 将会根据此请求,创建https服务器
       fakeServersCenter,
       dnsConfig,
       sniConfig
@@ -92,7 +97,7 @@ module.exports = {
         // log.info('request,', req.hostname)
         requestHandler(req, res, ssl)
       })
-      // tunneling for https
+      // HACK 监听connect请求 tunneling for https
       server.on('connect', (req, cltSocket, head) => {
         // log.info('connect,', req.url)
         connectHandler(req, cltSocket, head)

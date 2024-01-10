@@ -27,6 +27,11 @@
 					"line": 308,
 					"column": 0,
 					"label": ""
+				},
+				{
+					"line": 309,
+					"column": 0,
+					"label": "从这里进入启动server"
 				}
 			]
 		},
@@ -34,7 +39,7 @@
 			"path": "packages/mitmproxy/src/index.js",
 			"bookmarks": [
 				{
-					"line": 65,
+					"line": 67,
 					"column": 0,
 					"label": ""
 				}
@@ -46,7 +51,97 @@
 				{
 					"line": 39,
 					"column": 0,
+					"label": "这里进入server开启"
+				}
+			]
+		},
+		{
+			"path": "packages/gui/src/bridge/backend.js",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 0,
+					"label": "这里暴露server"
+				}
+			]
+		},
+		{
+			"path": "packages/gui/src/bridge/api/backend.js",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 0,
+					"label": "这个文件被子进程执行,开启代理"
+				},
+				{
+					"line": 74,
+					"column": 0,
+					"label": "这里连接三个项目到一起的入口点.mitmproxyPath是另一个模块的入口"
+				},
+				{
+					"line": 153,
+					"column": 0,
 					"label": ""
+				},
+				{
+					"line": 159,
+					"column": 0,
+					"label": "这里真正启动server"
+				}
+			]
+		},
+		{
+			"path": "packages/gui/src/bridge/mitmproxy.js",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 0,
+					"label": "这里启动代理"
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/modules/server/index.js",
+			"bookmarks": [
+				{
+					"line": 35,
+					"column": 0,
+					"label": "启动真正的server"
+				},
+				{
+					"line": 71,
+					"column": 0,
+					"label": "配置文件在~/.dev-sidecar目录"
+				},
+				{
+					"line": 73,
+					"column": 0,
+					"label": "执行子进程的mitmproxy文件"
+				}
+			]
+		},
+		{
+			"path": "packages/core/src/index.js",
+			"bookmarks": [
+				{
+					"line": 17,
+					"column": 0,
+					"label": "这里是入口"
+				}
+			]
+		},
+		{
+			"path": "packages/mitmproxy/src/options.js",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 0,
+					"label": "代理服务器配置"
+				},
+				{
+					"line": 62,
+					"column": 0,
+					"label": "拦截器配置"
 				}
 			]
 		}
